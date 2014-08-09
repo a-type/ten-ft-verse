@@ -1,0 +1,80 @@
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  margin: 0;
+  background: #e0e0e0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.subtle {
+  color: #aaa;
+  font-size: 10px;
+}
+
+#versesPanel {
+  margin-top: 18px;
+  margin-bottom: 82px;
+}
+
+.verse {
+  cursor: pointer;
+  margin: 2px 18px 8px 18px;
+  background: #ddd;
+}
+
+.verse-title {
+  font-family: inherit;
+  padding: 4px;
+  background: white;
+  border-bottom: 4px solid #aaa;
+}
+
+.verse-title:hover {
+  background: #ccc;
+}
+
+.verse-text {
+  font-family: inherit;
+}
+
+.verse-text-container {
+  overflow-y: hidden;
+  padding: 8px;
+  background: #ccc;
+}
+
+.bot-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #f0f0f0;
+  padding: 0;
+  height: 64px;
+  border-top: 4px solid #ccc;
+}
+
+.wide-input {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  margin: 0;
+  padding: 0 8px;
+  border: none;
+}
+
+.wide-input:focus {
+  outline: none;
+  background: #f8f8f8;
+}
+
+form {
+  height: 100%;
+  display: inline;
+}
+
+.error {
+  margin-left: 18px; 
+}

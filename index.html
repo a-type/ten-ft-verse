@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Ten Foot Verse</title>
+    <script type="text/javascript" src="./js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/lib/underscore.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <span id="about" class="subtle"><b>Ten Foot Verse</b> made by Grant Forrest</span>
+    <!-- search input -->
+    <div id="searchPanel" class="bot-bar">
+      <form onsubmit="return submitSearch();">
+        <input type="text" id="searchQuery" class="wide-input" placeholder="enter a verse" />
+      </form>
+    </div>
+    <div id="versesPanel">
+
+    </div>
+
+    <script type="text/template" id="verseTemplate">
+      <div class="verse" onclick="toggleExpand(this);">
+        <div class="verse-title"><h1><%= passage %></h1></div>
+        <div class="verse-text-container">
+          <span class="verse-text"><%= text %></span>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="errorTemplate">
+      <div class="error subtle">
+        <span><%= error %></span>
+      </div>
+    </script>
+  </body>
+</html>
