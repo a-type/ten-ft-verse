@@ -16,7 +16,7 @@
     <!-- search input -->
     <div id="searchPanel" class="bot-bar">
       <form onsubmit="return submitSearch();">
-        <input type="text" id="searchQuery" class="wide-input" placeholder="enter a verse" />
+        <input type="text" id="searchQuery" onkeydown="onSearchKeyDown();" class="wide-input wide-input-100" placeholder="enter a verse" />
       </form>
     </div>
     <div id="versesPanel">
@@ -25,7 +25,11 @@
 
     <script type="text/template" id="verseTemplate">
       <div class="verse" onclick="toggleExpand(this);">
-        <div class="verse-title"><h1><%= passage %></h1></div>
+        <div class="verse-title">
+          <div class="verse-close" onclick="closeSelf(this);">&times;</div>
+          <h1><%= passage %></h1>
+          <h3 class="submitter"><%= submitter %></h3>
+        </div>
         <div class="verse-text-container">
           <span class="verse-text"><%= text %></span>
         </div>

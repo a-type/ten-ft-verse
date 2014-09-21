@@ -33,7 +33,7 @@ function submitSearch() {
               return;
             }
             var firstVerse = resp;
-            addVerse(passage, firstVerse);
+            addVerse(passage, firstVerse/*, sub*/);
           }
         });  
       }
@@ -41,15 +41,15 @@ function submitSearch() {
   return false;
 }
 
-function addVerse(p, v) {
+function addVerse(p, v, s) {
 
   var returnedEl = $(v),
-      data = { passage: p, text: "" },
+      data = { passage: p, text: "", submitter: s },
       t;
   for (t = 0; t < returnedEl.length; t++) {
     data.text += returnedEl[t].textContent;
   }
-  data.text = data.text.trim();
+  data.text = data.text.trim().replace(/Yahweh/g, "the LORD");
   var el = $(TEN.verseTpl(data));
   var container = el.find(".verse-text-container");
   container[0].expanded = false;
@@ -70,4 +70,15 @@ function toggleExpand(el) {
     container.animate({"opacity": "0"}, 200).slideUp(200);
   }
   container[0].expanded = !container[0].expanded;
+}
+
+function closeSelf(el) {
+  var verseEl = $(el).closest(".verse");
+  verseEl.remove();
+}
+
+function onSearchKeyDown() {
+  if (event.keyCode === 13 && $("#searchQuery").val() !== ""){
+    $("form").submit();
+  }
 }
