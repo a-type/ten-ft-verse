@@ -7,7 +7,7 @@ $(function() {
   TEN.errorTpl = _.template($("#errorTemplate").html().trim());
   TEN.versePanel = $("#versesPanel");
 });
-TEN.apiKey = "";
+TEN.apiKey = "{{ API_KEY }}";
 
 function submitSearch() {
   var q = $("#searchQuery").val().toUpperCase();
@@ -78,7 +78,8 @@ function closeSelf(el) {
 }
 
 function onSearchKeyDown() {
-  if (event.keyCode === 13 && $("#searchQuery").val() !== ""){
+  var q = $("#searchQuery").val();
+  if (event.keyCode === 13 && q !== "" && q !== null && q !== undefined){
     $("form").submit();
   }
 }
